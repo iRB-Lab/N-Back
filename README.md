@@ -39,7 +39,7 @@ After entering the lab, participants read and were explained about the experimen
 ## References
 1. [Hogervorst, M. A., Brouwer, A. M., & van Erp, J. B. (2014). Combining and comparing EEG, peripheral physiology and eye-related measures for the assessment of mental workload.][Hogervorst et al. (2014)]
 
-###### Powered by
+## Powered by
 * [Semantic UI](http://semantic-ui.com/)
 * [jQuery](http://jquery.com/)
 * [Font Awesome](http://fontawesome.io/)
