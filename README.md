@@ -13,6 +13,9 @@
 # N-Back
 A JavaScript implementation of the N-Back Task described in [Hogervorst et al. (2014)][]
 
+## Overview
+This task requires participants to indicate of each of successively presented letters whether it is a target or not. Workload is low when the target letter is an `X` (0-back), intermediate when the target letter is the same as the one before (1-back) and high when the target letter is the same as two letters before (2-back). In this task, visual input and number of button presses are the same across workload levels. This means that effects of workload can really be attributed to differences in mental processes and cannot be due to different amounts of hand or eye movements in the high workload condition compared to the low workload condition.
+
 ## Task
 Participants viewed letters, successively presented on a screen. For each letter, they pressed a button to indicate whether the letter was a target or a non-target.
 
