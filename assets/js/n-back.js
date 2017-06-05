@@ -12,7 +12,7 @@ var config = {
     'levels': [0, 1, 2]
 };
 
-function getStimuli(level,
+function getBlock(level,
     stimuliPool=config.stimuli_pool,
     totalSize=config.total_size,
     targetSize=config.target_size,
@@ -89,7 +89,7 @@ function getBlocks(levels=config.levels,
     tockInterval=config.tock_interval,
     restInterval=config.baseline_interval) {
     return _.map(shuffleBlocks(levels), function (level) {
-        return getStimuli(level, stimuliPool, totalSize, targetSize, tickInterval, tockInterval, restInterval);
+        return getBlock(level, stimuliPool, totalSize, targetSize, tickInterval, tockInterval, restInterval);
     });
 };
 
@@ -97,7 +97,7 @@ function loadStimulus(stimulus) {
     $('#stimulus').removeClass('disabled').text(stimulus);
 };
 
-function refreshStimulus() {
+function resetStimulus() {
     $('#stimulus').addClass('disabled').text(config.blank_stimulus);
 };
 
@@ -116,7 +116,7 @@ function loadBlock(block) {
                 loadStimulus(block.stimuli[stimulusIndex].stimulus);
             };
             if (elapsedTime === block.stimuli[stimulusIndex].tock) {
-                refreshStimulus();
+                resetStimulus();
                 stimulusIndex++;
             };
         } else if (elapsedTime === block.end_time) {
