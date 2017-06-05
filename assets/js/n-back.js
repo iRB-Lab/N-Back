@@ -40,3 +40,9 @@ function getStimuli(step, totalNum, targetNum) {
     };
     return stimuli;
 };
+
+function getBlocks() {
+    var conditions = [0, 1, 2];
+    var blocks = _.sampleSize(conditions, 2);
+    return _.concat(_.shuffle(_.difference(conditions, [blocks[0]])), blocks, _.shuffle(_.difference(conditions, [blocks[1]])));
+};
