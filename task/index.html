@@ -11,8 +11,12 @@ task: true
             <div class="content">The N-Back Task</div>
         </h2>
         <div class="ui stacked segment">
-            <div id="stimulus" class="ui header disabled">×</div>
-            <div class="ui fluid large blue button">Get Started</div>
+            <div id="stimulus-wrapper">
+                <div class="ui header disabled">×</div>
+            </div>
+            <div id="action-buttons">
+                <div class="ui fluid large blue button">Get Started</div>
+            </div>
         </div>
         <div class="ui message"><a class="loading-trigger" href="{{ '/' | relative_url }}">Back to Home</a></div>
     </div>

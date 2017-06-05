@@ -7,7 +7,7 @@ var config = {
     'target_size': 16,
     'tick_interval': 500,
     'tock_interval': 2000,
-    'baseline_interval': 120000,
+    'baseline_interval': 1000,
     'granularity': 500,
     'levels': [0, 1, 2]
 };
@@ -94,11 +94,11 @@ function getBlocks(levels=config.levels,
 };
 
 function loadStimulus(stimulus) {
-    $('#stimulus').removeClass('disabled').text(stimulus);
+    $('#stimulus-wrapper').html('<div class="ui header">' + stimulus + '</div>');
 };
 
 function resetStimulus() {
-    $('#stimulus').addClass('disabled').text(config.blank_stimulus);
+    $('#stimulus-wrapper').html('<div class="ui header disabled">' + config.blank_stimulus + '</div>');
 };
 
 function loadBlock(block) {
