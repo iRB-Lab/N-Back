@@ -1,0 +1,32 @@
+repository: https://github.com/iROCKBUNNY/N-Back
+
+timezone: Asia/Shanghai
+
+name: N-Back
+author: iROCKBUNNY
+author_url: http://irockbunny.com
+organization: TEELAB
+organization_url: http://teelab.net
+description: The N-Back Task
+keywords: N-Back, Game
+url: http://n-back.irockbunnylab.com
+contact: contact[at]irockbunny[dot]com
+
+logo: /images/logo.png
+logo_dark: /images/logo-dark.png
+logo_white: /images/logo-white.png
+
+gems:
+- jekyll-seo-tag
+- jekyll-sitemap
+
+exclude:
+- .gitignore
+- .travis.yml
+- LICENSE
+- README.md
+- CNAME
+- Gemfile
+- Gemfile.lock
+- script
+- vendor
