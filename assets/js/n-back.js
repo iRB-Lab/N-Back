@@ -9,19 +9,31 @@ function getStimuli(step, totalNum, targetNum) {
     var stimuli = [];
     if (step === 0) {
         for (var i = 0; i < totalNum; i++) {
-            stimuli.push(_.sample(stimuliPool));
+            stimuli.push({
+                'stimulus': _.sample(stimuliPool),
+                'is_target': true
+            });
         };
     } else {
         for (var i = 0; i < totalNum; i++) {
             if (i < step) {
-                stimuli.push(_.sample(stimuliPool));
+                stimuli.push({
+                    'stimulus': _.sample(stimuliPool),
+                    'is_target': false
+                });
             } else {
                 var target = _.nth(stimuli, -step);
                 if (_.random(1, totalNum - i) <= targetNum) {
                     targetNum--;
-                    stimuli.push(target);
+                    stimuli.push({
+                        'stimulus': target.stimulus,
+                        'is_target': true
+                    });
                 } else {
-                    stimuli.push(_.sample(_.difference(stimuliPool, [target])));
+                    stimuli.push({
+                        'stimulus': _.sample(_.difference(stimuliPool, [target.stimulus])),
+                        'is_target': false
+                    });
                 };
             };
         };
