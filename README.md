@@ -46,6 +46,7 @@ After entering the lab, participants read and were explained about the experimen
 * [Shields.io](http://shields.io/)
 * [Moment.js](http://momentjs.com/)
 * [jQuery.countdown](http://hilios.github.io/jQuery.countdown/)
+* [Lodash](https://lodash.com/)
 * [Jekyll](http://jekyllrb.com/)
 * [GitHub Pages](https://pages.github.com/)
 
