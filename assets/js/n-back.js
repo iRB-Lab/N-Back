@@ -7,7 +7,7 @@ var config = {
     'target_size': 16,
     'tick_interval': 500,
     'tock_interval': 2000,
-    'baseline_interval': 1000,
+    'baseline_interval': 120000,
     'granularity': 500,
     'levels': [0, 1, 2]
 };
@@ -110,6 +110,11 @@ function loadBlock(block) {
     var elapsedTime = 0;
     var stimulusIndex = 0;
     var intervalID = setInterval(function () {
+        if (elapsedTime < config.baseline_interval) {
+            $('#block-loading-progress').progress('increment');
+        } else if (elapsedTime === config.baseline_interval) {
+            $('#action-buttons').html('<div class="ui two large buttons"><div class="ui positive left labeled icon target button"><i class="checkmark icon"></i>Target</div><div class="ui negative right labeled icon non-target button">Non-Target<i class="remove icon"></i></div></div>');
+        };
         elapsedTime += config.granularity;
         if (stimulusIndex < block.stimuli.length) {
             if (elapsedTime === block.stimuli[stimulusIndex].tick) {
@@ -122,8 +127,5 @@ function loadBlock(block) {
         } else if (elapsedTime === block.end_time) {
             clearInterval(intervalID);
         };
-        console.log(elapsedTime);
-        console.log(stimulusIndex);
-        console.log(block.end_time);
     }, config.granularity);
 };

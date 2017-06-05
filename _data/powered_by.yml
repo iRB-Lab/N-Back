@@ -4,6 +4,9 @@
 - name: jQuery
   url: http://jquery.com/
 
+- name: Lodash
+  url: https://lodash.com/
+
 - name: Font Awesome
   url: http://fontawesome.io/
 
@@ -12,12 +15,6 @@
 
 - name: Moment.js
   url: http://momentjs.com/
-
-- name: jQuery.countdown
-  url: http://hilios.github.io/jQuery.countdown/
-
-- name: Lodash
-  url: https://lodash.com/
 
 - name: Jekyll
   url: http://jekyllrb.com/
