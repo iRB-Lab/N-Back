@@ -22,16 +22,16 @@ function getStimuli(step, totalNum, targetNum) {
                     'is_target': false
                 });
             } else {
-                var target = _.nth(stimuli, -step);
+                var target = _.nth(stimuli, -step).stimulus;
                 if (_.random(1, totalNum - i) <= targetNum) {
                     targetNum--;
                     stimuli.push({
-                        'stimulus': target.stimulus,
+                        'stimulus': target,
                         'is_target': true
                     });
                 } else {
                     stimuli.push({
-                        'stimulus': _.sample(_.difference(stimuliPool, [target.stimulus])),
+                        'stimulus': _.sample(_.difference(stimuliPool, [target])),
                         'is_target': false
                     });
                 };
