@@ -2,24 +2,24 @@
 
 var stimuliPool = ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'];
 
-function getStimuli(step, totalNum=48, targetNum=16) {
+function getStimuli(level, totalNum=48, targetNum=16) {
     var stimuli = [];
-    if (step === 0) {
+    if (level === 0) {
         for (var i = 0; i < totalNum; i++) {
             stimuli.push({
                 'stimulus': _.sample(stimuliPool),
                 'is_target': true
             });
         };
-    } else if (step > 0) {
+    } else if (level > 0) {
         for (var i = 0; i < totalNum; i++) {
-            if (i < step) {
+            if (i < level) {
                 stimuli.push({
                     'stimulus': _.sample(stimuliPool),
                     'is_target': false
                 });
             } else {
-                var target = _.nth(stimuli, -step).stimulus;
+                var target = _.nth(stimuli, -level).stimulus;
                 if (_.random(1, totalNum - i) <= targetNum) {
                     targetNum--;
                     stimuli.push({
@@ -35,16 +35,19 @@ function getStimuli(step, totalNum=48, targetNum=16) {
             };
         };
     };
-    return stimuli;
+    return {
+        'level': String(level) + '-Back',
+        'stimuli': stimuli
+    };
 };
 
-function getBlocks(conditions=[0, 1, 2]) {
-    var blocks = _.sampleSize(conditions, 2);
-    return _.concat(_.shuffle(_.difference(conditions, [blocks[0]])), blocks, _.shuffle(_.difference(conditions, [blocks[1]])));
+function getBlocks(levels=[0, 1, 2]) {
+    var blocks = _.sampleSize(levels, 2);
+    return _.concat(_.shuffle(_.difference(levels, [blocks[0]])), blocks, _.shuffle(_.difference(levels, [blocks[1]])));
 };
 
-function getSession(conditions=[0, 1, 2], totalNum=48, targetNum=16) {
-    return _.map(getBlocks(conditions), function (step) {
-        return getStimuli(step, totalNum, targetNum);
+function getSession(levels=[0, 1, 2], totalNum=48, targetNum=16) {
+    return _.map(getBlocks(levels), function (level) {
+        return getStimuli(level, totalNum, targetNum);
     });
-}
+};
