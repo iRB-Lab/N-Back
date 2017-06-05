@@ -12,17 +12,16 @@ var config = {
     'levels': [0, 1, 2]
 };
 
-function getBlock(level,
+function generateBlock(level,
     stimuliPool=config.stimuli_pool,
     totalSize=config.total_size,
     targetSize=config.target_size,
     tickInterval=config.tick_interval,
-    tockInterval=config.tock_interval,
-    restInterval=config.baseline_interval) {
+    tockInterval=config.tock_interval) {
     var stimuli = [];
     var interval = tickInterval + tockInterval;
-    var tick = restInterval;
-    var tock = restInterval + tickInterval;
+    var tick = 0;
+    var tock = tickInterval;
     if (level === 0) {
         for (var i = 0; i < totalSize; i++) {
             stimuli.push({
@@ -81,15 +80,14 @@ function shuffleBlocks(levels=config.levels) {
     return _.concat(_.shuffle(_.difference(levels, [blocks[0]])), blocks, _.shuffle(_.difference(levels, [blocks[1]])));
 };
 
-function getBlocks(levels=config.levels,
+function generateBlocks(levels=config.levels,
     stimuliPool=config.stimuli_pool,
     totalSize=config.total_size,
     targetSize=config.target_size,
     tickInterval=config.tick_interval,
-    tockInterval=config.tock_interval,
-    restInterval=config.baseline_interval) {
+    tockInterval=config.tock_interval) {
     return _.map(shuffleBlocks(levels), function (level) {
-        return getBlock(level, stimuliPool, totalSize, targetSize, tickInterval, tockInterval, restInterval);
+        return generateBlock(level, stimuliPool, totalSize, targetSize, tickInterval, tockInterval);
     });
 };
 
@@ -106,20 +104,24 @@ function loadCountdown(second) {
     $('#stimulus-wrapper .ui.header').text(second + 's');
 };
 
+function loadRestBlock(restInvertal=config.baseline_interval) {};
+
 function loadBlock(block) {
     $('#task-header .image').attr({
         src: block.image_src,
         alt: block.image_alt
     });
     $('#task-header .content').text(block.header);
+    $('#action-buttons').html('<div class="ui two large buttons"><div class="ui positive left labeled icon target button"><i class="checkmark icon"></i>Target</div><div class="ui negative right labeled icon non-target button">Non-Target<i class="remove icon"></i></div></div>');
     var elapsedTime = 0;
     var stimulusIndex = 0;
+    loadStimulus(block.stimuli[stimulusIndex].stimulus);
     var intervalID = setInterval(function () {
-        if (elapsedTime < config.baseline_interval) {
-            loadCountdown(Math.floor((config.baseline_interval - elapsedTime) / config.granularity / 2));
-        } else if (elapsedTime === config.baseline_interval) {
-            $('#action-buttons').html('<div class="ui two large buttons"><div class="ui positive left labeled icon target button"><i class="checkmark icon"></i>Target</div><div class="ui negative right labeled icon non-target button">Non-Target<i class="remove icon"></i></div></div>');
-        };
+        // if (elapsedTime < config.baseline_interval) {
+        //     loadCountdown(Math.floor((config.baseline_interval - elapsedTime) / config.granularity / 2));
+        // } else if (elapsedTime === config.baseline_interval) {
+            // $('#action-buttons').html('<div class="ui two large buttons"><div class="ui positive left labeled icon target button"><i class="checkmark icon"></i>Target</div><div class="ui negative right labeled icon non-target button">Non-Target<i class="remove icon"></i></div></div>');
+        // };
         elapsedTime += config.granularity;
         if (stimulusIndex < block.stimuli.length) {
             if (elapsedTime === block.stimuli[stimulusIndex].tick) {
