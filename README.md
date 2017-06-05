@@ -45,6 +45,7 @@ After entering the lab, participants read and were explained about the experimen
 * [Font Awesome](http://fontawesome.io/)
 * [Shields.io](http://shields.io/)
 * [Moment.js](http://momentjs.com/)
+* [jQuery.countdown](http://hilios.github.io/jQuery.countdown/)
 * [Jekyll](http://jekyllrb.com/)
 * [GitHub Pages](https://pages.github.com/)
 
