@@ -2,9 +2,9 @@
 
 // GitHub
 function updateGitHub() {
-    $('#github-watch img').attr('src', 'https://img.shields.io/github/watchers/iROCKBUNNY/BYR-Navi.svg?style=social&label=Watch');
-    $('#github-star img').attr('src', 'https://img.shields.io/github/stars/iROCKBUNNY/BYR-Navi.svg?style=social&label=Star');
-    $('#github-fork img').attr('src', 'https://img.shields.io/github/forks/iROCKBUNNY/BYR-Navi.svg?style=social&label=Fork');
+    $('#github-watch img').attr('src', 'https://img.shields.io/github/watchers/iROCKBUNNY/N-Back.svg?style=social&label=Watch');
+    $('#github-star img').attr('src', 'https://img.shields.io/github/stars/iROCKBUNNY/N-Back.svg?style=social&label=Star');
+    $('#github-fork img').attr('src', 'https://img.shields.io/github/forks/iROCKBUNNY/N-Back.svg?style=social&label=Fork');
 };
 updateGitHub();
 setInterval(function () {
