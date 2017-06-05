@@ -10,31 +10,15 @@
     <link rel="stylesheet" type="text/css" href="//unpkg.com/semantic-ui/dist/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="//unpkg.com/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{{ '/assets/css/customize.css' | relative_url }}">
-    {% if page.home %}<link rel="stylesheet" type="text/css" href="{{ '/assets/css/customize-home.css' | relative_url }}">{% endif %}
-    {% if page.error %}<link rel="stylesheet" type="text/css" href="{{ '/assets/css/customize-error.css' | relative_url }}">{% endif %}
-    <link rel="stylesheet" type="text/css" href="{{ '/assets/css/customize-masthead.css' | relative_url }}">
     <link rel="apple-touch-icon" type="image/png" href="{{ '/apple-touch-icon.png' | relative_url }}">
     <link rel="icon" type="image/x-icon" href="{{ '/favicon.ico' | relative_url }}">
     {% include analytics.html %}
 </head>
 <body>
-    {% include following_menu.html %}
-    {% include sidebar_menu.html %}
-    <div class="pusher">
-        <div class="ui inverted vertical masthead center aligned segment zoomed">
-            {% include menu.html %}
-            {% if page.home %}{% include home_header.html %}{% endif %}
-            {% if page.error %}{% include error_header.html %}{% endif %}
-        </div>
-        {{ content }}
-        {% include footer.html %}
-    </div>
+    {{ content }}
     {% include dimmer.html %}
     <script type="text/javascript" src="//unpkg.com/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="//unpkg.com/semantic-ui/dist/semantic.min.js"></script>
-    {% if page.home %}<script type="text/javascript" src="//unpkg.com/moment/min/moment-with-locales.min.js"></script>{% endif %}
     <script type="text/javascript" src="{{ '/assets/js/loading-dimmer.js' | relative_url }}"></script>
-    <script type="text/javascript" src="{{ '/assets/js/customize.js' | relative_url }}"></script>
-    {% if page.home %}<script type="text/javascript" src="{{ '/assets/js/customize-home.js' | relative_url }}"></script>{% endif %}
 </body>
 </html>

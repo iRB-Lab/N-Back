@@ -1,0 +1,26 @@
+<div class="ui inverted vertical footer segment">
+    <div class="ui container">
+        <div class="ui stackable inverted divided equal height stackable grid">
+            <div class="three wide column">
+                <h4 class="ui inverted header">Powered by</h4>
+                <div class="ui inverted link list">
+                    {% for item in site.data.powered_by %}<a class="item" href="{{ item.url }}" target="_blank">{{ item.name }}</a>{% endfor %}
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header">About</h4>
+                <div class="ui inverted link list">
+                    <a class="item" href="{{ site.author_url }}" target="_blank">{{ site.author }}</a>
+                    <a class="item" href="https://saythanks.io/to/{{ site.author }}" target="_blank">Say Thanks</a>
+                </div>
+            </div>
+            <div class="ten wide column">
+                <h4 class="ui inverted header">{{ site.name }}</h4>
+                <div class="ui inverted link list">
+                    <div class="item">&copy; {{ site.time | date: "%Y" }} {{ site.organization }}</div>
+                    <div class="item">Designed and built with all the love and passion in the world by {{ site.author }}.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

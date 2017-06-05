@@ -1,3 +1,7 @@
+analytics:
+  google:
+    id: UA-100402621-1
+
 repository: https://github.com/iROCKBUNNY/N-Back
 
 timezone: Asia/Shanghai
@@ -5,16 +9,17 @@ timezone: Asia/Shanghai
 name: N-Back
 author: iROCKBUNNY
 author_url: http://irockbunny.com
-organization: TEELAB
-organization_url: http://teelab.net
-description: The N-Back Task
-keywords: N-Back, Game
+organization: iROCKBUNNY Lab
+organization_url: http://irockbunnylab.net
+description: A JavaScript Implementation of the N-Back Task
+keywords: N-Back, The N-Back Task, Game
 url: http://n-back.irockbunnylab.com
 contact: contact[at]irockbunny[dot]com
 
 logo: /images/logo.png
-logo_dark: /images/logo-dark.png
-logo_white: /images/logo-white.png
+logo_0: /images/logo-0.png
+logo_1: /images/logo-1.png
+logo_2: /images/logo-2.png
 
 gems:
 - jekyll-seo-tag

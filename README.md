@@ -19,9 +19,9 @@ This task requires participants to indicate of each of successively presented le
 ## Task
 Participants viewed letters, successively presented on a screen. For each letter, they pressed a button to indicate whether the letter was a target or a non-target.
 
-* In the 0-back condition, the letter `X` is the target. 
-* In the 1-back condition, a letter is a target when it is the same as the one before. 
-* In the 2-back condition, a letter is a target when it is the same as two letters before. 
+* In the 0-back condition, the letter `X` is the target.
+* In the 1-back condition, a letter is a target when it is the same as the one before.
+* In the 2-back condition, a letter is a target when it is the same as two letters before.
 
 With this version of the n-back task, the level of workload is varied without varying visual input or frequency and type of motor output (button presses). A 3-back condition was not used, due to evidence that many participants find it too difficult and tend to give up ([Ayaz et al., 2007][]; [Izzetoglu et al., 2007][]).
 
@@ -44,6 +44,7 @@ After entering the lab, participants read and were explained about the experimen
 * [jQuery](http://jquery.com/)
 * [Font Awesome](http://fontawesome.io/)
 * [Shields.io](http://shields.io/)
+* [Moment.js](http://momentjs.com/)
 * [Jekyll](http://jekyllrb.com/)
 * [GitHub Pages](https://pages.github.com/)
 

@@ -10,6 +10,9 @@
 - name: Shields.io
   url: http://shields.io/
 
+- name: Moment.js
+  url: http://momentjs.com/
+
 - name: Jekyll
   url: http://jekyllrb.com/
 
