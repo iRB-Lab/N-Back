@@ -101,6 +101,11 @@ function resetStimulus() {
     $('#stimulus-wrapper').html('<div class="ui header disabled">' + config.blank_stimulus + '</div>');
 };
 
+function loadCountdown(second) {
+    $('#block-loading-progress').progress('increment');
+    $('#stimulus-wrapper .ui.header').text(second + 's');
+};
+
 function loadBlock(block) {
     $('#task-header .image').attr({
         src: block.image_src,
@@ -111,7 +116,7 @@ function loadBlock(block) {
     var stimulusIndex = 0;
     var intervalID = setInterval(function () {
         if (elapsedTime < config.baseline_interval) {
-            $('#block-loading-progress').progress('increment');
+            loadCountdown(Math.floor((config.baseline_interval - elapsedTime) / config.granularity / 2));
         } else if (elapsedTime === config.baseline_interval) {
             $('#action-buttons').html('<div class="ui two large buttons"><div class="ui positive left labeled icon target button"><i class="checkmark icon"></i>Target</div><div class="ui negative right labeled icon non-target button">Non-Target<i class="remove icon"></i></div></div>');
         };
