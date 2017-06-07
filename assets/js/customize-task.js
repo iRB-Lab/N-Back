@@ -62,9 +62,11 @@ function nextBlock() {
     currentBlockLoaded = false;
     currentBlockRunning = false;
     currentStimulusIndex = 0;
+    currentStimulusIndexCache = -1;
 };
 
 function loadCurrentStimulus(stimulus) {
+    $('#main').removeClass('tertiary inverted green red');
     $('#stimulus').html('<div class="ui header">' + stimulus + '</div>');
     currentStimulusLoadTime = new Date();
 };
@@ -77,12 +79,29 @@ function nextStimulus() {
     currentStimulusIndex++;
 };
 
+function updateStimulusCache() {
+    currentStimulusIndexCache++;
+};
+
+function alertCorrect() {
+    $('#main').addClass('tertiary inverted green');
+};
+
+function alertIncorrect() {
+    $('#main').addClass('tertiary inverted red');
+};
+
 function markAsTarget(date) {
     if (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time === null) {
         blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time = date - currentStimulusLoadTime;
         blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].answer = true;
-        blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].correct = (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].is_target === true);
-        console.log(blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time);
+        if (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].is_target === true) {
+            blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].correct = true;
+            alertCorrect();
+        } else {
+            blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].correct = false;
+            alertIncorrect();
+        };
     };
 };
 
@@ -90,8 +109,13 @@ function markAsNonTarget(date) {
     if (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time === null) {
         blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time = date - currentStimulusLoadTime;
         blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].answer = false;
-        blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].correct = (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].is_target === false);
-        console.log(blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time);
+        if (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].is_target === false) {
+            blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].correct = true;
+            alertCorrect();
+        } else {
+            blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].correct = false;
+            alertIncorrect();
+        };
     };
 };
 
@@ -161,7 +185,7 @@ setInterval(function () {
         tick();
         if (currentStimulusIndex < blocks[currentBlockIndex].stimuli.length) {
             if (elapsedTime === blocks[currentBlockIndex].stimuli[currentStimulusIndex].load_time) {
-                currentStimulusIndexCache++;
+                updateStimulusCache();
                 loadCurrentStimulus(blocks[currentBlockIndex].stimuli[currentStimulusIndex].stimulus);
             };
             if (elapsedTime === blocks[currentBlockIndex].stimuli[currentStimulusIndex].unload_time) {
