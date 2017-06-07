@@ -6,11 +6,22 @@ var taskOptions = {
     'total_size': 48,
     'target_size': 16,
     'before_start': 2000,
-    'load_interval': 500,
-    'unload_interval': 2000,
+    'load_interval': 100,
+    'unload_interval': 100,
     'baseline_interval': 120000,
     'granularity': 100,
-    'levels': [0, 1, 2]
+    'levels': [0, 1, 2],
+    'rsme': {
+        '2': 'Absolutely no effort',
+        '13': 'Almost no effort',
+        '25': 'A little effort',
+        '37': 'Some effort',
+        '57': 'Rather much effort',
+        '71': 'Considerable effort',
+        '85': 'Great effort',
+        '102': 'Very great effort',
+        '112': 'Extreme effort'
+    }
 };
 
 function generateBlock(level,
@@ -30,7 +41,10 @@ function generateBlock(level,
                 'stimulus': _.sample(stimuliPool),
                 'is_target': true,
                 'load_time': loadTime,
-                'unload_time': unloadTime
+                'unload_time': unloadTime,
+                'answer': null,
+                'correct': null,
+                'response_time': null
             });
             loadTime += interval;
             unloadTime += interval;
@@ -42,7 +56,10 @@ function generateBlock(level,
                     'stimulus': _.sample(stimuliPool),
                     'is_target': false,
                     'load_time': loadTime,
-                    'unload_time': unloadTime
+                    'unload_time': unloadTime,
+                    'answer': null,
+                    'correct': null,
+                    'response_time': null
                 });
             } else {
                 var target = _.nth(stimuli, -level).stimulus;
@@ -52,14 +69,20 @@ function generateBlock(level,
                         'stimulus': target,
                         'is_target': true,
                         'load_time': loadTime,
-                        'unload_time': unloadTime
+                        'unload_time': unloadTime,
+                        'answer': null,
+                        'correct': null,
+                        'response_time': null
                     });
                 } else {
                     stimuli.push({
                         'stimulus': _.sample(_.difference(stimuliPool, [target])),
                         'is_target': false,
                         'load_time': loadTime,
-                        'unload_time': unloadTime
+                        'unload_time': unloadTime,
+                        'answer': null,
+                        'correct': null,
+                        'response_time': null
                     });
                 };
             };
@@ -73,7 +96,8 @@ function generateBlock(level,
         'image_src': '/images/logo-' + String(level) + '.png',
         'image_alt': String(level) + '-Back Task Logo',
         'stimuli': stimuli,
-        'end_time': loadTime
+        'total_time': loadTime,
+        'rsme': null
     };
 };
 

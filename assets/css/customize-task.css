@@ -10,6 +10,19 @@ body .grid {
     max-width: 450px;
 }
 
-#stimulus-wrapper .ui.header {
+#task-header {
+    margin-bottom: 0;
+}
+
+#stimulus .ui.header {
     font-size: 10em;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+}
+
+#rsme-slider {
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 25px;
+    margin-left: 100px;
 }
