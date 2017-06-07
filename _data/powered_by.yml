@@ -16,6 +16,9 @@
 - name: Moment.js
   url: http://momentjs.com/
 
+- name: noUiSlider
+  url: https://refreshless.com/nouislider/
+
 - name: Jekyll
   url: http://jekyllrb.com/
 
