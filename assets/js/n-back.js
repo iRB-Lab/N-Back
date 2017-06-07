@@ -1,37 +1,39 @@
 // n-back.js
 
-var config = {
-    'blank_stimulus': '×',
+var taskOptions = {
+    'empty_stimulus': '×',
     'stimuli_pool': ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'],
     'total_size': 48,
     'target_size': 16,
-    'tick_interval': 500,
-    'tock_interval': 2000,
+    'before_start': 2000,
+    'load_interval': 500,
+    'unload_interval': 2000,
     'baseline_interval': 120000,
-    'granularity': 500,
+    'granularity': 100,
     'levels': [0, 1, 2]
 };
 
 function generateBlock(level,
-    stimuliPool=config.stimuli_pool,
-    totalSize=config.total_size,
-    targetSize=config.target_size,
-    tickInterval=config.tick_interval,
-    tockInterval=config.tock_interval) {
+    stimuliPool=taskOptions.stimuli_pool,
+    totalSize=taskOptions.total_size,
+    targetSize=taskOptions.target_size,
+    beforeStart=taskOptions.before_start,
+    loadInterval=taskOptions.load_interval,
+    unloadInterval=taskOptions.unload_interval) {
     var stimuli = [];
-    var interval = tickInterval + tockInterval;
-    var tick = 0;
-    var tock = tickInterval;
+    var interval = loadInterval + unloadInterval;
+    var loadTime = beforeStart;
+    var unloadTime = loadTime + loadInterval;
     if (level === 0) {
         for (var i = 0; i < totalSize; i++) {
             stimuli.push({
                 'stimulus': _.sample(stimuliPool),
                 'is_target': true,
-                'tick': tick,
-                'tock': tock
+                'load_time': loadTime,
+                'unload_time': unloadTime
             });
-            tick += interval;
-            tock += interval;
+            loadTime += interval;
+            unloadTime += interval;
         };
     } else if (level > 0) {
         for (var i = 0; i < totalSize; i++) {
@@ -39,8 +41,8 @@ function generateBlock(level,
                 stimuli.push({
                     'stimulus': _.sample(stimuliPool),
                     'is_target': false,
-                    'tick': tick,
-                    'tock': tock
+                    'load_time': loadTime,
+                    'unload_time': unloadTime
                 });
             } else {
                 var target = _.nth(stimuli, -level).stimulus;
@@ -49,20 +51,20 @@ function generateBlock(level,
                     stimuli.push({
                         'stimulus': target,
                         'is_target': true,
-                        'tick': tick,
-                        'tock': tock
+                        'load_time': loadTime,
+                        'unload_time': unloadTime
                     });
                 } else {
                     stimuli.push({
                         'stimulus': _.sample(_.difference(stimuliPool, [target])),
                         'is_target': false,
-                        'tick': tick,
-                        'tock': tock
+                        'load_time': loadTime,
+                        'unload_time': unloadTime
                     });
                 };
             };
-            tick += interval;
-            tock += interval;
+            loadTime += interval;
+            unloadTime += interval;
         };
     };
     return {
@@ -71,68 +73,23 @@ function generateBlock(level,
         'image_src': '/images/logo-' + String(level) + '.png',
         'image_alt': String(level) + '-Back Task Logo',
         'stimuli': stimuli,
-        'end_time': tick
+        'end_time': loadTime
     };
 };
 
-function shuffleBlocks(levels=config.levels) {
+function shuffleBlocks(levels=taskOptions.levels) {
     var blocks = _.sampleSize(levels, 2);
     return _.concat(_.shuffle(_.difference(levels, [blocks[0]])), blocks, _.shuffle(_.difference(levels, [blocks[1]])));
 };
 
-function generateBlocks(levels=config.levels,
-    stimuliPool=config.stimuli_pool,
-    totalSize=config.total_size,
-    targetSize=config.target_size,
-    tickInterval=config.tick_interval,
-    tockInterval=config.tock_interval) {
+function generateBlocks(levels=taskOptions.levels,
+    stimuliPool=taskOptions.stimuli_pool,
+    totalSize=taskOptions.total_size,
+    targetSize=taskOptions.target_size,
+    beforeStart=taskOptions.before_start,
+    loadInterval=taskOptions.load_interval,
+    unloadInterval=taskOptions.unload_interval) {
     return _.map(shuffleBlocks(levels), function (level) {
-        return generateBlock(level, stimuliPool, totalSize, targetSize, tickInterval, tockInterval);
+        return generateBlock(level, stimuliPool, totalSize, targetSize, beforeStart, loadInterval, unloadInterval);
     });
-};
-
-function loadStimulus(stimulus) {
-    $('#stimulus-wrapper').html('<div class="ui header">' + stimulus + '</div>');
-};
-
-function resetStimulus() {
-    $('#stimulus-wrapper').html('<div class="ui header disabled">' + config.blank_stimulus + '</div>');
-};
-
-function loadCountdown(second) {
-    $('#block-loading-progress').progress('increment');
-    $('#stimulus-wrapper .ui.header').text(second + 's');
-};
-
-function loadRestBlock(restInvertal=config.baseline_interval) {};
-
-function loadBlock(block) {
-    $('#task-header .image').attr({
-        src: block.image_src,
-        alt: block.image_alt
-    });
-    $('#task-header .content').text(block.header);
-    $('#action-buttons').html('<div class="ui two large buttons"><div class="ui positive left labeled icon target button"><i class="checkmark icon"></i>Target</div><div class="ui negative right labeled icon non-target button">Non-Target<i class="remove icon"></i></div></div>');
-    var elapsedTime = 0;
-    var stimulusIndex = 0;
-    loadStimulus(block.stimuli[stimulusIndex].stimulus);
-    var intervalID = setInterval(function () {
-        // if (elapsedTime < config.baseline_interval) {
-        //     loadCountdown(Math.floor((config.baseline_interval - elapsedTime) / config.granularity / 2));
-        // } else if (elapsedTime === config.baseline_interval) {
-            // $('#action-buttons').html('<div class="ui two large buttons"><div class="ui positive left labeled icon target button"><i class="checkmark icon"></i>Target</div><div class="ui negative right labeled icon non-target button">Non-Target<i class="remove icon"></i></div></div>');
-        // };
-        elapsedTime += config.granularity;
-        if (stimulusIndex < block.stimuli.length) {
-            if (elapsedTime === block.stimuli[stimulusIndex].tick) {
-                loadStimulus(block.stimuli[stimulusIndex].stimulus);
-            };
-            if (elapsedTime === block.stimuli[stimulusIndex].tock) {
-                resetStimulus();
-                stimulusIndex++;
-            };
-        } else if (elapsedTime === block.end_time) {
-            clearInterval(intervalID);
-        };
-    }, config.granularity);
 };
