@@ -1,13 +1,13 @@
 // n-back.js
 
 var taskOptions = {
-    'empty_stimulus': '×',
+    'empty_stimulus': '╳',
     'stimuli_pool': ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'],
     'total_size': 48,
     'target_size': 16,
-    'before_start': 100,
-    'load_interval': 100,
-    'unload_interval': 100,
+    'before_start': 2000,
+    'load_interval': 500,
+    'unload_interval': 2000,
     'granularity': 100,
     'levels': [0, 1, 2],
     'rsme': {

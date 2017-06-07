@@ -6,14 +6,19 @@ practice: true
 
 <div class="ui middle aligned center aligned grid">
     <div class="column">
-        <h2 class="ui blue image header">
-            <img class="image" src="{{ site.logo | relative_url }}" alt="N-Back Logo">
+        <h2 id="task-header" class="ui blue image header">
+            <img class="image" src="{{ site.logo | relative_url }}" alt="N-Back Task Logo">
             <div class="content">The Practice</div>
         </h2>
-        <div class="ui stacked segment">
-            <div id="stimulus" class="ui header disabled">×</div>
-            <div class="ui fluid large blue button">Get Started</div>
+        <div class="ui segments">
+            <div id="main" class="ui segment"></div>
+            <div id="action-buttons" class="ui segment"></div>
+            <div class="ui segment">
+                <div class="ui horizontal relaxed link list">
+                    <a class="item loading-trigger" href="{{ '/' | relative_url }}"><i class="home icon"></i>Home</a>
+                    <a class="item loading-trigger" href="{{ '/practice/' | relative_url }}"><i class="refresh icon"></i>Restart</a>
+                </div>
+            </div>
         </div>
-        <div class="ui message"><a class="loading-trigger" href="{{ '/' | relative_url }}">Back to Home</a></div>
     </div>
 </div>

@@ -25,7 +25,7 @@ function loadCurrentBlock(block) {
     });
     $('#rsme-header').remove();
     $('#rsme-slider').remove();
-    $('#main').append($('<div>').attr('id', 'stimulus').html('<div class="ui header disabled">×</div>'));
+    $('#main').append($('<div>').attr('id', 'stimulus').html('<div class="ui header disabled">' + taskOptions.empty_stimulus + '</div>'));
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
         $('<div>').addClass('ui fluid large primary start button').text('Start Task').click(function () {
