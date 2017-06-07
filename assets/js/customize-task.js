@@ -5,14 +5,11 @@ var currentBlockIndex = 0;
 var currentBlockLoaded = false;
 var currentBlockRunning = false;
 var currentStimulusIndex = 0;
+var currentStimulusLoadTime = new Date();
 
 
 function tick() {
     elapsedTime += taskOptions.granularity;
-};
-
-function resetTimer() {
-    elapsedTime = 0;
 };
 
 function loadCurrentBlock(block) {
@@ -42,13 +39,13 @@ function startCurrentBlock() {
     $('#action-buttons').append(
         $('<div>').addClass('ui two large buttons').append(
             $('<div>').addClass('ui positive left labeled icon target button').html('<i class="checkmark icon"></i>Target').click(function () {
-                //
+                markAsTarget();
             })
         ).append(
             $('<div>').addClass('or')
         ).append(
             $('<div>').addClass('ui negative right labeled icon non-target button').html('Non-Target<i class="remove icon"></i>').click(function () {
-                //
+                markAsNonTarget();
             })
         )
     );
@@ -68,6 +65,7 @@ function nextBlock() {
 
 function loadCurrentStimulus(stimulus) {
     $('#stimulus').html('<div class="ui header">' + stimulus + '</div>');
+    currentStimulusLoadTime = new Date();
 };
 
 function unloadCurrentStimulus() {
@@ -78,11 +76,40 @@ function nextStimulus() {
     currentStimulusIndex++;
 };
 
+function markAsTarget(date) {
+    if (blocks[currentBlockIndex].stimuli[currentStimulusIndex].response_time === null) {
+        blocks[currentBlockIndex].stimuli[currentStimulusIndex].response_time = date - currentStimulusLoadTime;
+        blocks[currentBlockIndex].stimuli[currentStimulusIndex].answer = true;
+        blocks[currentBlockIndex].stimuli[currentStimulusIndex].correct = (blocks[currentBlockIndex].stimuli[currentStimulusIndex].is_target === true);
+        console.log(blocks[currentBlockIndex].stimuli[currentStimulusIndex].response_time);
+    };
+};
+
+function markAsNonTarget(date) {
+    if (blocks[currentBlockIndex].stimuli[currentStimulusIndex].response_time === null) {
+        blocks[currentBlockIndex].stimuli[currentStimulusIndex].response_time = date - currentStimulusLoadTime;
+        blocks[currentBlockIndex].stimuli[currentStimulusIndex].answer = false;
+        blocks[currentBlockIndex].stimuli[currentStimulusIndex].correct = (blocks[currentBlockIndex].stimuli[currentStimulusIndex].is_target === false);
+        console.log(blocks[currentBlockIndex].stimuli[currentStimulusIndex].response_time);
+    };
+};
+
+$(document).keydown(function(event){
+    if (currentBlockRunning) {
+        if (event.keyCode === 37) {
+            markAsTarget(new Date());
+        } else if (event.keyCode === 39){
+            markAsNonTarget(new Date());
+        };
+    };
+});
+
 function loadRSME() {
     $('#stimulus').remove();
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
         $('<div>').addClass('ui fluid large primary confirm-rsme button').text('Confirm and Submit').click(function () {
+            blocks[currentBlockIndex].rsme = RSMESlider.noUiSlider.get();
             if (currentBlockIndex < blocks.length - 1) {
                 nextBlock();
             } else {
@@ -124,7 +151,6 @@ function loadRSME() {
 
 
 var blocks = generateBlocks();
-
 loadCurrentBlock(blocks[currentBlockIndex]);
 setInterval(function () {
     if (!currentBlockLoaded) {
