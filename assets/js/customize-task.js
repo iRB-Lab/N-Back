@@ -1,15 +1,22 @@
 // customize-task.js
 
-var blocks = generateBlocks();
-var currentBlockIndex = 0;
-var currentBlockStarted = false;
-var currentblockRunning = false;
 var elapsedTime = 0;
+var currentBlockIndex = 0;
+var currentBlockLoaded = false;
+var currentBlockRunning = false;
 var currentStimulusIndex = 0;
 
 
+function tick() {
+    elapsedTime += taskOptions.granularity;
+};
+
+function resetTimer() {
+    elapsedTime = 0;
+};
+
 function loadCurrentBlock(block) {
-    currentblockRunning = true;
+    currentBlockLoaded = true;
     $('#task-header .image').attr({
         src: block.image_src,
         alt: block.image_alt
@@ -21,7 +28,7 @@ function loadCurrentBlock(block) {
 };
 
 function startCurrentBlock() {
-    currentBlockStarted = true;
+    currentBlockRunning = true;
     $('#action-buttons div.start.button').remove();
     $('#action-buttons').append(
         $('<div>').addClass('ui two large buttons').append(
@@ -32,16 +39,16 @@ function startCurrentBlock() {
     );
 };
 
+function stopCurrentBlock() {
+    currentBlockRunning = false;
+};
+
 function resetCurrenBlock() {
     blocks = generateBlocks();
     currentBlockIndex = 0;
-    currentBlockStarted = false;
+    currentBlockRunning = false;
     elapsedTime = 0;
     currentStimulusIndex = 0;
-};
-
-function tick() {
-    elapsedTime += taskOptions.granularity;
 };
 
 function loadStimulus(stimulus) {
@@ -56,14 +63,18 @@ function nextStimulus() {
     currentStimulusIndex++;
 };
 
+function loadRSME() {};
+
 $('#action-buttons .start.button').on('click', function () {
     startCurrentBlock();
 });
 
+var blocks = generateBlocks();
+
 loadCurrentBlock(blocks[currentBlockIndex]);
 var taskTimer = setInterval(function () {
-    if (currentBlockStarted) {
-        if (!currentblockRunning) {
+    if (currentBlockRunning) {
+        if (!currentBlockLoaded) {
             loadCurrentBlock(blocks[currentBlockIndex]);
         };
         tick();
@@ -76,7 +87,8 @@ var taskTimer = setInterval(function () {
                 nextStimulus();
             };
         } else if (elapsedTime === blocks[currentBlockIndex].end_time) {
-            clearInterval(taskTimer);
+            stopCurrentBlock();
+            loadRSME();
         };
     };
 }, taskOptions.granularity);
