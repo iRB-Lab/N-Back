@@ -19,6 +19,9 @@
 - name: noUiSlider
   url: https://refreshless.com/nouislider/
 
+- name: clipboard.js
+  url: https://clipboardjs.com/
+
 - name: Jekyll
   url: http://jekyllrb.com/
 

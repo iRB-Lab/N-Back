@@ -25,7 +25,7 @@ function loadCurrentBlock(block) {
     });
     $('#rsme-header').remove();
     $('#rsme-slider').remove();
-    $('#main').prepend($('<div>').attr('id', 'stimulus').html('<div class="ui header disabled">×</div>'));
+    $('#main').append($('<div>').attr('id', 'stimulus').html('<div class="ui header disabled">×</div>'));
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
         $('<div>').addClass('ui fluid large primary start button').text('Start Task').click(function () {
@@ -131,6 +131,11 @@ $(document).keydown(function(event){
 
 function loadRSME() {
     $('#stimulus').remove();
+    $('#main').removeClass('tertiary inverted green red').append(
+        $('<div>').attr('id', 'rsme-header').addClass('ui header').text('Please rate your effort in this task')
+    ).append(
+        $('<div>').attr('id', 'rsme-slider')
+    );
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
         $('<div>').addClass('ui fluid large primary confirm-rsme button').text('Confirm and Submit').click(function () {
@@ -141,11 +146,6 @@ function loadRSME() {
                 loadResults();
             };
         })
-    );
-    $('#main').prepend(
-        $('<div>').attr('id', 'rsme-slider')
-    ).prepend(
-        $('<div>').attr('id', 'rsme-header').addClass('ui header').text('Please rate your effort in this task')
     );
     var RSMESlider = document.getElementById('rsme-slider');
     noUiSlider.create(RSMESlider, {
@@ -172,6 +172,27 @@ function loadRSME() {
         var label = taskOptions.rsme[value] + ' (' + value + ')';
         $(this).text(label);
     });
+};
+
+function loadResults() {
+    $('#task-header .image').attr({
+        src: '/images/logo.png',
+        alt: 'N-Back Task Logo'
+    });
+    $('#task-header .content').html('The N-Back Task<div class="sub header">Results</div>');
+    $('#rsme-header').remove();
+    $('#rsme-slider').remove();
+    $('#main').addClass('form').append(
+        $('<textarea>').attr({
+            id: 'results',
+            rows: '15'
+        })
+    ).form('set value', 'results', JSON.stringify(blocks));
+    $('#action-buttons').children().remove();
+    $('#action-buttons').append(
+        $('<div>').addClass('ui fluid large primary copy button').attr('data-clipboard-target', '#results').text('Copy to Clipboard')
+    );
+    new Clipboard('.copy.button');
 };
 
 
