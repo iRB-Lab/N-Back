@@ -5,6 +5,7 @@ var currentBlockIndex = 0;
 var currentBlockLoaded = false;
 var currentBlockRunning = false;
 var currentStimulusIndex = 0;
+var currentStimulusIndexCache = -1;
 var currentStimulusLoadTime = new Date();
 
 
@@ -77,20 +78,20 @@ function nextStimulus() {
 };
 
 function markAsTarget(date) {
-    if (blocks[currentBlockIndex].stimuli[currentStimulusIndex].response_time === null) {
-        blocks[currentBlockIndex].stimuli[currentStimulusIndex].response_time = date - currentStimulusLoadTime;
-        blocks[currentBlockIndex].stimuli[currentStimulusIndex].answer = true;
-        blocks[currentBlockIndex].stimuli[currentStimulusIndex].correct = (blocks[currentBlockIndex].stimuli[currentStimulusIndex].is_target === true);
-        console.log(blocks[currentBlockIndex].stimuli[currentStimulusIndex].response_time);
+    if (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time === null) {
+        blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time = date - currentStimulusLoadTime;
+        blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].answer = true;
+        blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].correct = (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].is_target === true);
+        console.log(blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time);
     };
 };
 
 function markAsNonTarget(date) {
-    if (blocks[currentBlockIndex].stimuli[currentStimulusIndex].response_time === null) {
-        blocks[currentBlockIndex].stimuli[currentStimulusIndex].response_time = date - currentStimulusLoadTime;
-        blocks[currentBlockIndex].stimuli[currentStimulusIndex].answer = false;
-        blocks[currentBlockIndex].stimuli[currentStimulusIndex].correct = (blocks[currentBlockIndex].stimuli[currentStimulusIndex].is_target === false);
-        console.log(blocks[currentBlockIndex].stimuli[currentStimulusIndex].response_time);
+    if (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time === null) {
+        blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time = date - currentStimulusLoadTime;
+        blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].answer = false;
+        blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].correct = (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].is_target === false);
+        console.log(blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time);
     };
 };
 
@@ -160,6 +161,7 @@ setInterval(function () {
         tick();
         if (currentStimulusIndex < blocks[currentBlockIndex].stimuli.length) {
             if (elapsedTime === blocks[currentBlockIndex].stimuli[currentStimulusIndex].load_time) {
+                currentStimulusIndexCache++;
                 loadCurrentStimulus(blocks[currentBlockIndex].stimuli[currentStimulusIndex].stimulus);
             };
             if (elapsedTime === blocks[currentBlockIndex].stimuli[currentStimulusIndex].unload_time) {
