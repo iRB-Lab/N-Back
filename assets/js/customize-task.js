@@ -21,7 +21,7 @@ function loadCurrentBlock(block) {
     });
     $('#task-header .content').html(function () {
         var subheader = currentBlockIndex + 1;
-        return (block.header + '<div class="sub header">Block ' + String(subheader) + '/' + String(blocks.length) + '</div>');
+        return (block.header + '<div class="sub header">Block ' + String(subheader) + ' of ' + String(blocks.length) + '</div>');
     });
     $('#rsme-header').remove();
     $('#rsme-slider').remove();
