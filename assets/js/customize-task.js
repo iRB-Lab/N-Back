@@ -30,7 +30,7 @@ function loadCurrentBlock(block) {
     $('#main').prepend($('<div>').attr('id', 'stimulus').html('<div class="ui header disabled">×</div>'));
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
-        $('<div>').addClass('ui fluid large primary start button').text('Start Task').on('click', function () {
+        $('<div>').addClass('ui fluid large primary start button').text('Start Task').click(function () {
             startCurrentBlock();
         })
     );
@@ -41,11 +41,15 @@ function startCurrentBlock() {
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
         $('<div>').addClass('ui two large buttons').append(
-            $('<div>').addClass('ui positive left labeled icon target button').html('<i class="checkmark icon"></i>Target')
+            $('<div>').addClass('ui positive left labeled icon target button').html('<i class="checkmark icon"></i>Target').click(function () {
+                //
+            })
         ).append(
             $('<div>').addClass('or')
         ).append(
-            $('<div>').addClass('ui negative right labeled icon non-target button').html('Non-Target<i class="remove icon"></i>')
+            $('<div>').addClass('ui negative right labeled icon non-target button').html('Non-Target<i class="remove icon"></i>').click(function () {
+                //
+            })
         )
     );
 };
@@ -78,7 +82,7 @@ function loadRSME() {
     $('#stimulus').remove();
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
-        $('<div>').addClass('ui fluid large primary confirm-rsme button').text('Confirm and Submit').on('click', function () {
+        $('<div>').addClass('ui fluid large primary confirm-rsme button').text('Confirm and Submit').click(function () {
             if (currentBlockIndex < blocks.length - 1) {
                 nextBlock();
             } else {
