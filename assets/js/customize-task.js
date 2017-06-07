@@ -149,7 +149,7 @@ function loadRSME() {
     );
     var RSMESlider = document.getElementById('rsme-slider');
     noUiSlider.create(RSMESlider, {
-        start: [0],
+        start: [50],
         direction: 'rtl',
         orientation: 'vertical',
         step: 1,
