@@ -26,7 +26,7 @@ function loadCurrentBlock(block) {
     $('#main').append($('<div>').attr('id', 'stimulus').html('<div class="ui header disabled">' + taskOptions.empty_stimulus + '</div>'));
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
-        $('<div>').addClass('ui fluid large primary start button').text('Start: ' + subheader).click(function () {
+        $('<div>').addClass('ui fluid large primary start button').text('Start: ' + block.header + ' (' + subheader + ')').click(function () {
             startCurrentBlock();
         })
     );
