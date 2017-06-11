@@ -19,16 +19,14 @@ function loadCurrentBlock(block) {
         src: block.image_src,
         alt: block.image_alt
     });
-    $('#task-header .content').html(function () {
-        var subheader = currentBlockIndex + 1;
-        return (block.header + '<div class="sub header">Block ' + String(subheader) + ' of ' + String(blocks.length) + '</div>');
-    });
+    var subheader = 'Block ' + String(currentBlockIndex + 1) + ' of ' + String(blocks.length);
+    $('#task-header .content').html(block.header + '<div class="sub header">' + subheader + '</div>');
     $('#rsme-header').remove();
     $('#rsme-slider').remove();
     $('#main').append($('<div>').attr('id', 'stimulus').html('<div class="ui header disabled">' + taskOptions.empty_stimulus + '</div>'));
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
-        $('<div>').addClass('ui fluid large primary start button').text('Start Task').click(function () {
+        $('<div>').addClass('ui fluid large primary start button').text('Start: ' + subheader).click(function () {
             startCurrentBlock();
         })
     );
