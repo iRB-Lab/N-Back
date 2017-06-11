@@ -91,6 +91,7 @@ function generateBlock(level,
     };
     return {
         'level': level,
+        'level_alias': String(level) + '-Back',
         'header': 'The ' + String(level) + '-Back Task',
         'image_src': '/images/logo-' + String(level) + '.png',
         'image_alt': String(level) + '-Back Task Logo',
