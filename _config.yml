@@ -2,7 +2,8 @@ analytics:
   google:
     id: UA-100402621-1
 
-repository: https://github.com/iROCKBUNNY/N-Back
+repository: iROCKBUNNY/N-Back
+repository_url: https://github.com/iROCKBUNNY/N-Back
 
 timezone: Asia/Shanghai
 

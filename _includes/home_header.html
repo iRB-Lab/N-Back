@@ -2,10 +2,10 @@
     <h1 class="ui inverted header">{{ site.name }}</h1>
     <h2>{{ site.description }}</h2>
     <div class="badges">
-        <a id="github-watch" href="{{ site.repository }}/watchers" target="_blank"><img src="https://img.shields.io/github/watchers/iROCKBUNNY/N-Back.svg?style=social&label=Watch" alt="GitHub Watchers"></a>
-        <a id="github-star" href="{{ site.repository }}/stargazers" target="_blank"><img src="https://img.shields.io/github/stars/iROCKBUNNY/N-Back.svg?style=social&label=Star" alt="GitHub Stargazers"></a>
-        <a id="github-fork" href="{{ site.repository }}/network/members" target="_blank"><img src="https://img.shields.io/github/forks/iROCKBUNNY/N-Back.svg?style=social&label=Fork" alt="GitHub Forks"></a>
-        <a id="version" href="{{ site.repository }}/commits" target="_blank" data-update-at="{{ site.time | date_to_xmlschema }}"><img src="https://img.shields.io/badge/Updated-loading-orange.svg" alt="Update Time"></a>
+        <a id="github-watch" href="{{ site.repository_url }}/watchers" target="_blank"><img src="https://img.shields.io/github/watchers/{{ site.repository }}.svg?style=social&label=Watch" alt="GitHub Watchers"></a>
+        <a id="github-star" href="{{ site.repository_url }}/stargazers" target="_blank"><img src="https://img.shields.io/github/stars/{{ site.repository }}.svg?style=social&label=Star" alt="GitHub Stargazers"></a>
+        <a id="github-fork" href="{{ site.repository_url }}/network/members" target="_blank"><img src="https://img.shields.io/github/forks/{{ site.repository }}.svg?style=social&label=Fork" alt="GitHub Forks"></a>
+        <a id="version" href="{{ site.repository_url }}/commits" target="_blank" data-update-at="{{ site.time | date_to_xmlschema }}"><img src="https://img.shields.io/badge/Updated-loading-orange.svg" alt="Update Time"></a>
     </div>
     <a class="ui huge inverted yellow basic button" href="{{ '/' | relative_url }}#get-started">Get Started<i class="right arrow icon"></i></a>
 </div>

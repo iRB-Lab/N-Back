@@ -35,6 +35,9 @@
     {% if page.home %}<script type="text/javascript" src="//unpkg.com/moment/min/moment.min.js"></script>{% endif %}
     <script type="text/javascript" src="{{ '/assets/js/loading-dimmer.js' | relative_url }}"></script>
     <script type="text/javascript" src="{{ '/assets/js/customize.js' | relative_url }}"></script>
+    {% if page.home %}<script type="text/javascript">
+        var repository = '{{ site.repository }}';
+    </script>{% endif %}
     {% if page.home %}<script type="text/javascript" src="{{ '/assets/js/customize-home.js' | relative_url }}"></script>{% endif %}
 </body>
 </html>
