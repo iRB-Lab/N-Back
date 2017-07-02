@@ -117,3 +117,15 @@ function generateBlocks(levels=taskOptions.levels,
         return generateBlock(level, stimuliPool, totalSize, targetSize, beforeStart, loadInterval, unloadInterval);
     });
 };
+
+function generatePracticeBlocks(levels=taskOptions.levels,
+    stimuliPool=taskOptions.stimuli_pool,
+    totalSize=taskOptions.total_size,
+    targetSize=taskOptions.target_size,
+    beforeStart=taskOptions.before_start,
+    loadInterval=taskOptions.load_interval,
+    unloadInterval=taskOptions.unload_interval) {
+    return _.map(levels, function (level) {
+        return generateBlock(level, stimuliPool, totalSize, targetSize, beforeStart, loadInterval, unloadInterval);
+    });
+};

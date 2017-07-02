@@ -1,7 +1,8 @@
 ---
 layout: task
-title: Practice
+title: 1-Back Practice
 practice: true
+practice_1: true
 ---
 
 <div class="ui middle aligned center aligned grid">
@@ -16,7 +17,9 @@ practice: true
             <div class="ui segment">
                 <div class="ui horizontal relaxed link list">
                     <a class="item loading-trigger" href="{{ '/' | relative_url }}"><i class="home icon"></i>Home</a>
-                    <a class="item loading-trigger" href="{{ '/practice/' | relative_url }}"><i class="refresh icon"></i>Restart</a>
+                    <a class="item loading-trigger" href="{{ '/practice/0/' | relative_url }}"><i class="right arrow icon"></i>0-Back</a>
+                    <a class="active item loading-trigger" href="{{ '/practice/1/' | relative_url }}"><i class="right arrow icon"></i>1-Back</a>
+                    <a class="item loading-trigger" href="{{ '/practice/2/' | relative_url }}"><i class="right arrow icon"></i>2-Back</a>
                 </div>
             </div>
         </div>
