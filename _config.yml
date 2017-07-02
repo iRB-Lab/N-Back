@@ -22,7 +22,7 @@ logo_0: /images/logo-0.png
 logo_1: /images/logo-1.png
 logo_2: /images/logo-2.png
 
-plugins:
+gems:
 - jekyll-seo-tag
 - jekyll-sitemap
 
