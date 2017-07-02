@@ -46,6 +46,18 @@ function startCurrentBlock() {
             $('<div>').addClass('ui negative right labeled icon non-target button').html('Non-Target<i class="right arrow icon"></i>').click(function () {
                 markAsNonTarget();
             })
+        ).append(
+            $('<audio>').attr({
+                id: 'correct-sound',
+                src: '/sound/correct.wav',
+                autostart: 'false'
+            })
+        ).append(
+            $('<audio>').attr({
+                id: 'incorrect-sound',
+                src: '/sound/incorrect.wav',
+                autostart: 'false'
+            })
         )
     );
 };
@@ -81,12 +93,24 @@ function updateStimulusCache() {
     currentStimulusIndexCache++;
 };
 
+function playCorrectSound() {
+    var sound = document.getElementById('correct-sound');
+    sound.play();
+};
+
+function playIncorrectSound() {
+    var sound = document.getElementById('incorrect-sound');
+    sound.play();
+};
+
 function alertCorrect() {
     $('#main').addClass('tertiary inverted green');
+    playCorrectSound();
 };
 
 function alertIncorrect() {
     $('#main').addClass('tertiary inverted red');
+    playIncorrectSound();
 };
 
 function markAsTarget(date) {
