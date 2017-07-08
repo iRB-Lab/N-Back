@@ -27,10 +27,9 @@
     {% if page.task or page.practice %}<script type="text/javascript" src="//unpkg.com/wnumb/wNumb.js"></script>{% endif %}
     {% if page.task or page.practice %}<script type="text/javascript" src="//unpkg.com/clipboard/dist/clipboard.min.js"></script>{% endif %}
     <script type="text/javascript" src="{{ '/assets/js/n-back.js' | relative_url }}"></script>
-    {% if page.task %}<script type="text/javascript" src="{{ '/assets/js/customize-task.js' | relative_url }}"></script>{% endif %}
-    {% if page.practice %}<script type="text/javascript" src="{{ '/assets/js/customize-practice.js' | relative_url }}"></script>{% endif %}
-    {% if page.practice_0_back %}<script type="text/javascript" src="{{ '/assets/js/customize-practice-0.js' | relative_url }}"></script>{% endif %}
-    {% if page.practice_1_back %}<script type="text/javascript" src="{{ '/assets/js/customize-practice-1.js' | relative_url }}"></script>{% endif %}
-    {% if page.practice_2_back %}<script type="text/javascript" src="{{ '/assets/js/customize-practice-2.js' | relative_url }}"></script>{% endif %}
+    {% if page.task %}<script type="text/javascript" src="{{ '/assets/js/run-task.js' | relative_url }}"></script>{% endif %}
+    {% if page.practice_0_back %}<script type="text/javascript" src="{{ '/assets/js/run-practice-0.js' | relative_url }}"></script>{% endif %}
+    {% if page.practice_1_back %}<script type="text/javascript" src="{{ '/assets/js/run-practice-1.js' | relative_url }}"></script>{% endif %}
+    {% if page.practice_2_back %}<script type="text/javascript" src="{{ '/assets/js/run-practice-2.js' | relative_url }}"></script>{% endif %}
 </body>
 </html>
