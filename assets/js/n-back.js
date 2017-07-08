@@ -264,7 +264,7 @@ function alertIncorrect() {
 
 function markAsTarget(responseTime) {
     if (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time === null) {
-        blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time = responseTime - currentStimulusLoadTime;
+        blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time = responseTime.getTime() - currentStimulusLoadTime.getTime();
         blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].answer = true;
         blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].timestamp.response = responseTime.toISOString();
         if (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].is_target === true) {
@@ -279,7 +279,7 @@ function markAsTarget(responseTime) {
 
 function markAsNonTarget(responseTime) {
     if (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time === null) {
-        blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time = responseTime - currentStimulusLoadTime;
+        blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].response_time = responseTime.getTime() - currentStimulusLoadTime.getTime();
         blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].answer = false;
         blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].timestamp.response = responseTime.toISOString();
         if (blocks[currentBlockIndex].stimuli[currentStimulusIndexCache].is_target === false) {
