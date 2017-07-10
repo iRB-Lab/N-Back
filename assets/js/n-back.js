@@ -5,6 +5,7 @@ var taskOptions = {
     'stimuli_pool': ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'],
     'total_size': 48,
     'target_size': 16,
+    'rest_interval': 300000,
     'before_start': 2000,
     'load_interval': 500,
     'unload_interval': 2000,
@@ -163,6 +164,7 @@ function tick() {
 
 function loadCurrentBlock(block) {
     currentBlockLoaded = true;
+    $('#stimulus').remove();
     $('#task-header .image').attr({
         src: block.image_src,
         alt: block.image_alt
@@ -181,7 +183,7 @@ function loadCurrentBlock(block) {
     $('#main').append($('<div>').attr('id', 'stimulus').html('<div class="ui header disabled">' + taskOptions.empty_stimulus + '</div>'));
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
-        $('<div>').addClass('ui fluid large primary start button').text('Start ' + subheader + ': ' + block.level_alias).click(function () {
+        $('<div>').addClass('ui fluid large primary button').text('Start ' + subheader + ': ' + block.level_alias).click(function () {
             playStartSound();
             startCurrentBlock();
         })
@@ -193,13 +195,13 @@ function startCurrentBlock() {
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
         $('<div>').addClass('ui two large buttons').append(
-            $('<div>').addClass('ui positive left labeled icon target button').html('<i class="left arrow icon"></i>Target').click(function () {
+            $('<div>').addClass('ui positive left labeled icon button').html('<i class="left arrow icon"></i>Target').click(function () {
                 markAsTarget();
             })
         ).append(
             $('<div>').addClass('or')
         ).append(
-            $('<div>').addClass('ui negative right labeled icon non-target button').html('Non-Target<i class="right arrow icon"></i>').click(function () {
+            $('<div>').addClass('ui negative right labeled icon button').html('Non-Target<i class="right arrow icon"></i>').click(function () {
                 markAsNonTarget();
             })
         ).append(
@@ -324,7 +326,7 @@ function loadRSME() {
     );
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
-        $('<div>').addClass('ui fluid large primary confirm-rsme button').text('Confirm and Submit').click(function () {
+        $('<div>').addClass('ui fluid large primary button').text('Confirm and Submit').click(function () {
             blocks[currentBlockIndex].rsme = RSMESlider.noUiSlider.get();
             if (currentBlockIndex < blocks.length - 1) {
                 nextBlock();
@@ -404,4 +406,31 @@ function runTask(blocks) {
             };
         };
     }, taskOptions.granularity);
+};
+
+function runTaskWithRest(blocks) {
+    var subheader = 'Rest';
+    $('#task-header .content').append($('<div>').addClass('sub header').text(subheader));
+    $('#task-header').append(
+        $('<audio>').attr({
+            id: 'start-sound',
+            src: '/sound/start.wav',
+            autostart: 'false'
+        })
+    );
+    $('#main').append($('<div>').attr('id', 'stimulus').html('<div class="ui header disabled">Rest</div>'));
+    $('#action-buttons').append(
+        $('<div>').addClass('ui fluid large primary button').text('Start ' + subheader).click(function () {
+            playStartSound();
+            $('#action-buttons').children().remove();
+            $('#action-buttons').append(
+                $('<div>').attr('id', 'clock').addClass('ui fluid large primary button')
+            );
+            $('#clock').countdown(new Date().getTime() + taskOptions.rest_interval, function (event) {
+                $(this).text(event.strftime('%-M:%S'));
+            }).on('finish.countdown', function (event) {
+                runTask(blocks);
+            });
+        })
+    );
 };
