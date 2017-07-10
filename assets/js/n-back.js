@@ -122,7 +122,7 @@ function shuffleBlocks(levels=taskOptions.levels) {
     return _.concat(_.shuffle(_.difference(levels, [blocks[0]])), blocks, _.shuffle(_.difference(levels, [blocks[1]])));
 };
 
-function generateBlocks(levels=taskOptions.levels,
+function generateTaskBlocks(levels=taskOptions.levels,
     stimuliPool=taskOptions.stimuli_pool,
     totalSize=taskOptions.total_size,
     targetSize=taskOptions.target_size,
@@ -169,12 +169,20 @@ function loadCurrentBlock(block) {
     });
     var subheader = 'Block ' + String(currentBlockIndex + 1) + ' of ' + String(blocks.length);
     $('#task-header .content').html(block.header + '<div class="sub header">' + subheader + '</div>');
+    $('#task-header').append(
+        $('<audio>').attr({
+            id: 'start-sound',
+            src: '/sound/start.wav',
+            autostart: 'false'
+        })
+    );
     $('#rsme-header').remove();
     $('#rsme-slider').remove();
     $('#main').append($('<div>').attr('id', 'stimulus').html('<div class="ui header disabled">' + taskOptions.empty_stimulus + '</div>'));
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
         $('<div>').addClass('ui fluid large primary start button').text('Start ' + subheader + ': ' + block.level_alias).click(function () {
+            playStartSound();
             startCurrentBlock();
         })
     );
@@ -240,6 +248,11 @@ function nextStimulus() {
 
 function updateStimulusCache() {
     currentStimulusIndexCache++;
+};
+
+function playStartSound() {
+    var sound = document.getElementById('start-sound');
+    sound.play();
 };
 
 function playCorrectSound() {

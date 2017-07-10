@@ -1,6 +1,6 @@
 // customize-task.js
 
-var blocks = generateBlocks();
+var blocks = generateTaskBlocks();
 loadCurrentBlock(blocks[currentBlockIndex]);
 setInterval(function () {
     if (!currentBlockLoaded) {
