@@ -149,6 +149,7 @@ function generatePracticeBlocks(levels=taskOptions.levels,
 
 
 // running
+var restBlockStartTime = null;
 var elapsedTime = 0;
 var currentBlockIndex = 0;
 var currentBlockLoaded = false;
@@ -375,7 +376,10 @@ function loadResults() {
             id: 'results',
             rows: '15'
         })
-    ).form('set value', 'results', JSON.stringify(blocks));
+    ).form('set value', 'results', JSON.stringify({
+        'rest_start_timestamp': restBlockStartTime,
+        'blocks': blocks
+    }));
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
         $('<div>').addClass('ui fluid large primary copy button').attr('data-clipboard-target', '#results').text('Copy to Clipboard')
@@ -421,6 +425,7 @@ function runTaskWithRest(blocks) {
     $('#main').append($('<div>').attr('id', 'stimulus').html('<div class="ui header disabled">Rest</div>'));
     $('#action-buttons').append(
         $('<div>').addClass('ui fluid large primary button').text('Start ' + subheader).click(function () {
+            restBlockStartTime = new Date().toISOString();
             playStartSound();
             $('#action-buttons').children().remove();
             $('#action-buttons').append(
