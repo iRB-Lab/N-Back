@@ -5,7 +5,7 @@ var taskOptions = {
     'stimuli_pool': ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'],
     'total_size': 48,
     'target_size': 16,
-    'rest_interval': 300000,
+    'rest_interval': 3000,
     'before_start': 2000,
     'load_interval': 500,
     'unload_interval': 2000,
@@ -258,6 +258,11 @@ function playStartSound() {
     sound.play();
 };
 
+function playStopSound() {
+    var sound = document.getElementById('stop-sound');
+    sound.play();
+};
+
 function playCorrectSound() {
     var sound = document.getElementById('correct-sound');
     sound.play();
@@ -421,6 +426,12 @@ function runTaskWithRest(blocks) {
             src: '/sound/start.wav',
             autostart: 'false'
         })
+    ).append(
+        $('<audio>').attr({
+            id: 'stop-sound',
+            src: '/sound/stop.wav',
+            autostart: 'false'
+        })
     );
     $('#main').append($('<div>').attr('id', 'stimulus').html('<div class="ui header disabled">Rest</div>'));
     $('#action-buttons').append(
@@ -434,6 +445,7 @@ function runTaskWithRest(blocks) {
             $('#clock').countdown(new Date().getTime() + taskOptions.rest_interval, function (event) {
                 $(this).text(event.strftime('%-M:%S'));
             }).on('finish.countdown', function (event) {
+                playStopSound();
                 runTask(blocks);
             });
         })
