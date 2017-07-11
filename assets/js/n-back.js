@@ -5,7 +5,7 @@ var taskOptions = {
     'stimuli_pool': ['B', 'C', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'X', 'Y', 'Z'],
     'total_size': 48,
     'target_size': 16,
-    'rest_interval': 3000,
+    'rest_interval': 300000,
     'before_start': 2000,
     'load_interval': 500,
     'unload_interval': 2000,
