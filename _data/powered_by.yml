@@ -16,6 +16,9 @@
 - name: Moment.js
   url: http://momentjs.com/
 
+- name: jQuery.countdown
+  url: http://hilios.github.io/jQuery.countdown/
+
 - name: noUiSlider
   url: https://refreshless.com/nouislider/
 
