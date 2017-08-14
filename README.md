@@ -40,17 +40,17 @@ After entering the lab, participants read and were explained about the experimen
 1. [Hogervorst, M. A., Brouwer, A. M., & van Erp, J. B. (2014). Combining and comparing EEG, peripheral physiology and eye-related measures for the assessment of mental workload.][Hogervorst et al. (2014)]
 
 ## Powered by
-* [Semantic UI](http://semantic-ui.com/)
-* [jQuery](http://jquery.com/)
-* [Lodash](https://lodash.com/)
-* [Font Awesome](http://fontawesome.io/)
-* [Shields.io](http://shields.io/)
-* [Moment.js](http://momentjs.com/)
-* [jQuery.countdown](http://hilios.github.io/jQuery.countdown/)
-* [noUiSlider](https://refreshless.com/nouislider/)
-* [clipboard.js](https://clipboardjs.com/)
-* [Jekyll](http://jekyllrb.com/)
-* [GitHub Pages](https://pages.github.com/)
+- [Semantic UI](http://semantic-ui.com/)
+- [jQuery](http://jquery.com/)
+- [Lodash](https://lodash.com/)
+- [Font Awesome](http://fontawesome.io/)
+- [Shields.io](http://shields.io/)
+- [Moment.js](http://momentjs.com/)
+- [jQuery.countdown](http://hilios.github.io/jQuery.countdown/)
+- [noUiSlider](https://refreshless.com/nouislider/)
+- [clipboard.js](https://clipboardjs.com/)
+- [Jekyll](http://jekyllrb.com/)
+- [GitHub Pages](https://pages.github.com/)
 
 [Hogervorst et al. (2014)]: https://doi.org/10.3389/fnins.2014.00322 "Hogervorst, M. A., Brouwer, A. M., & van Erp, J. B. (2014). Combining and comparing EEG, peripheral physiology and eye-related measures for the assessment of mental workload."
 [Ayaz et al., 2007]: http://ieeexplore.ieee.org/abstract/document/4227285/ "Ayaz, H., Izzetoglu, M., Bunce, S., Heiman-Patterson, T., & Onaral, B. (2007, May). Detecting cognitive activity related hemodynamic signal for brain computer interface using functional near infrared spectroscopy. In Neural Engineering, 2007. CNE'07. 3rd International IEEE/EMBS Conference on (pp. 342-345). IEEE."
