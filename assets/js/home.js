@@ -1,4 +1,4 @@
-// customize-home.js
+// home.js
 
 // GitHub
 function updateGitHub() {

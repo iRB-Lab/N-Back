@@ -1,18 +1,27 @@
-/* customize-error.css */
+/* home.css */
 
 .hidden.menu {
     display: none;
 }
 
 .masthead.segment {
-    min-height: 300px;
+    min-height: 700px;
     padding: 1em 0em;
 }
 
+.masthead .logo.item img {
+    margin-right: 1em;
+}
+
+.masthead .ui.menu .ui.button {
+    margin-left: 0.5em;
+}
+
 .masthead h1.ui.header {
-    margin-top: 1.5em;
-    font-size: 3em;
-    font-weight: normal;
+    margin-top: 3em;
+    margin-bottom: 0em;
+    font-size: 4em;
+    /*font-weight: normal;*/
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
     -moz-transform-style: preserve-3d;
     -webkit-transform-style: preserve-3d;
@@ -20,7 +29,6 @@
 }
 
 .masthead h2 {
-    margin-bottom: 1.5em;
     font-size: 1.7em;
     font-weight: normal;
     text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -29,12 +37,12 @@
     transform-style: preserve-3d;
 }
 
-.ui.vertical.stripe {
-    padding: 8em 0em;
+.masthead .badges {
+    margin-bottom: 1em;
 }
 
-.ui.vertical.stripe h1.ui.error.header {
-    font-size: 8em;
+.ui.vertical.stripe {
+    padding: 8em 0em;
 }
 
 .ui.vertical.stripe h3 {
@@ -58,6 +66,7 @@
     margin: 3em 0em;
 }
 
+.links.stripe.segment,
 .quote.stripe.segment {
     padding: 0em;
 }
@@ -65,6 +74,10 @@
 .quote.stripe.segment .grid .column {
     padding-top: 5em;
     padding-bottom: 5em;
+}
+
+.ui.stackable.celled.grid .row .links.column .ui.top.attached.label {
+    border-radius: 0;
 }
 
 .footer.segment {
@@ -87,17 +100,14 @@
         display: block;
     }
     .masthead.segment {
-        min-height: 160px;
+        min-height: 450px;
     }
     .masthead h1.ui.header {
-        margin-top: 1em;
-        font-size: 1.8em;
+        font-size: 2em;
+        margin-top: 1.5em;
     }
     .masthead h2 {
-        margin-bottom: 1em;
+        margin-top: 0.5em;
         font-size: 1.5em;
-    }
-    .ui.vertical.stripe h1.ui.error.header {
-        font-size: 4em;
     }
 }
