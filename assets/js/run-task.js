@@ -1,4 +1,4 @@
-// customize-task.js
+// run-task.js
 
 var blocks = generateTaskBlocks();
 runTaskWithRest(blocks);
