@@ -2,8 +2,8 @@ analytics:
   google:
     id: UA-100402621-1
 
-repository: iROCKBUNNY/N-Back
-repository_url: https://github.com/iROCKBUNNY/N-Back
+repository: iRB-Lab/N-Back
+repository_url: https://github.com/iRB-Lab/N-Back
 
 timezone: Asia/Shanghai
 

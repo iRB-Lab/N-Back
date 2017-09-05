@@ -1,14 +1,14 @@
-[![Build Status](https://travis-ci.org/iROCKBUNNY/N-Back.svg)](https://travis-ci.org/iROCKBUNNY/N-Back)
+[![Build Status](https://travis-ci.org/iRB-Lab/N-Back.svg)](https://travis-ci.org/iRB-Lab/N-Back)
 [![Website](https://img.shields.io/website-up-down-green-red/http/n-back.irockbunnylab.com.svg)](http://n-back.irockbunnylab.com/)
-[![License](https://img.shields.io/github/license/iROCKBUNNY/N-Back.svg)](/LICENSE)
+[![License](https://img.shields.io/github/license/iRB-Lab/N-Back.svg)](/LICENSE)
 [![Say Thanks](https://img.shields.io/badge/Say-Thanks!-1EAEDB.svg)](https://saythanks.io/to/iROCKBUNNY)
 
-[![Watchers](https://img.shields.io/github/watchers/iROCKBUNNY/N-Back.svg?style=social&label=Watch)](https://github.com/iROCKBUNNY/N-Back/watchers)
-[![Stargazers](https://img.shields.io/github/stars/iROCKBUNNY/N-Back.svg?style=social&label=Star)](https://github.com/iROCKBUNNY/N-Back/stargazers)
-[![Forks](https://img.shields.io/github/forks/iROCKBUNNY/N-Back.svg?style=social&label=Fork)](https://github.com/iROCKBUNNY/N-Back/network)
+[![Watchers](https://img.shields.io/github/watchers/iRB-Lab/N-Back.svg?style=social&label=Watch)](https://github.com/iRB-Lab/N-Back/watchers)
+[![Stargazers](https://img.shields.io/github/stars/iRB-Lab/N-Back.svg?style=social&label=Star)](https://github.com/iRB-Lab/N-Back/stargazers)
+[![Forks](https://img.shields.io/github/forks/iRB-Lab/N-Back.svg?style=social&label=Fork)](https://github.com/iRB-Lab/N-Back/network)
 
-[![Closed Issues](https://img.shields.io/github/issues-closed/iROCKBUNNY/N-Back.svg)](https://github.com/iROCKBUNNY/N-Back/issues)
-[![Closed Pull Requests](https://img.shields.io/github/issues-pr-closed/iROCKBUNNY/N-Back.svg)](https://github.com/iROCKBUNNY/N-Back/pulls)
+[![Closed Issues](https://img.shields.io/github/issues-closed/iRB-Lab/N-Back.svg)](https://github.com/iRB-Lab/N-Back/issues)
+[![Closed Pull Requests](https://img.shields.io/github/issues-pr-closed/iRB-Lab/N-Back.svg)](https://github.com/iRB-Lab/N-Back/pulls)
 
 # N-Back
 A JavaScript implementation of the N-Back Task described in [Hogervorst et al. (2014)][]
