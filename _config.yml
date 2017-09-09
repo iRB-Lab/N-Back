@@ -7,16 +7,19 @@ repository_url: https://github.com/iRB-Lab/N-Back
 
 timezone: Asia/Shanghai
 
-name: N-Back
+title: N-Back
+description: A JavaScript Implementation of the N-Back Task
+keywords: N-Back, The N-Back Task, Game
+url: http://n-back.irockbunnylab.com
+
 author: iROCKBUNNY
 author_url: http://irockbunny.com
 organization: iROCKBUNNY Lab
 organization_url: http://irockbunnylab.net
-description: A JavaScript Implementation of the N-Back Task
-keywords: N-Back, The N-Back Task, Game
-url: http://n-back.irockbunnylab.com
+
 contact: contact[at]irockbunny[dot]com
 
+image: /images/logo.png
 logo: /images/logo.png
 logo_0: /images/logo-0.png
 logo_1: /images/logo-1.png
