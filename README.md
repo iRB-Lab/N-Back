@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/iRB-Lab/N-Back.svg)](https://travis-ci.org/iRB-Lab/N-Back)
 [![Website](https://img.shields.io/website-up-down-green-red/http/n-back.irockbunnylab.com.svg)](http://n-back.irockbunnylab.com/)
-[![License](https://img.shields.io/github/license/iRB-Lab/N-Back.svg)](/LICENSE)
+[![License](https://img.shields.io/github/license/iRB-Lab/N-Back.svg)](/blob/master/LICENSE)
 [![Say Thanks](https://img.shields.io/badge/Say-Thanks!-1EAEDB.svg)](https://saythanks.io/to/iROCKBUNNY)
 
 [![Watchers](https://img.shields.io/github/watchers/iRB-Lab/N-Back.svg?style=social&label=Watch)](https://github.com/iRB-Lab/N-Back/watchers)
