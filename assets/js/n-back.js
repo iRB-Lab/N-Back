@@ -196,13 +196,13 @@ function startCurrentBlock() {
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
         $('<div>').addClass('ui two large buttons').append(
-            $('<div>').addClass('ui positive left labeled icon button').html('<i class="left arrow icon"></i>Target').click(function () {
+            $('<div>').addClass('ui positive left labeled icon button').html('<i class="arrow left icon"></i>Target').click(function () {
                 markAsTarget();
             })
         ).append(
             $('<div>').addClass('or')
         ).append(
-            $('<div>').addClass('ui negative right labeled icon button').html('Non-Target<i class="right arrow icon"></i>').click(function () {
+            $('<div>').addClass('ui negative right labeled icon button').html('Non-Target<i class="arrow right icon"></i>').click(function () {
                 markAsNonTarget();
             })
         ).append(
