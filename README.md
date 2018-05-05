@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/iRB-Lab/N-Back.svg)](https://travis-ci.org/iRB-Lab/N-Back)
-[![Website](https://img.shields.io/website-up-down-green-red/http/n-back.irockbunnylab.com.svg)](http://n-back.irockbunnylab.com/)
+[![Website](https://img.shields.io/website-up-down-green-red/https/n-back.irockbunnylab.com.svg)](https://n-back.irockbunnylab.com/)
 [![License](https://img.shields.io/github/license/iRB-Lab/N-Back.svg)](/blob/master/LICENSE)
 [![Say Thanks](https://img.shields.io/badge/Say-Thanks!-1EAEDB.svg)](https://saythanks.io/to/iROCKBUNNY)
 
@@ -40,16 +40,15 @@ After entering the lab, participants read and were explained about the experimen
 1. [Hogervorst, M. A., Brouwer, A. M., & van Erp, J. B. (2014). Combining and comparing EEG, peripheral physiology and eye-related measures for the assessment of mental workload.][Hogervorst et al. (2014)]
 
 ## Powered by
-- [Semantic UI](http://semantic-ui.com/)
-- [jQuery](http://jquery.com/)
+- [Semantic UI](https://semantic-ui.com/)
+- [jQuery](https://jquery.com/)
 - [Lodash](https://lodash.com/)
-- [Font Awesome](http://fontawesome.io/)
-- [Shields.io](http://shields.io/)
-- [Moment.js](http://momentjs.com/)
-- [jQuery.countdown](http://hilios.github.io/jQuery.countdown/)
+- [Shields.io](https://shields.io/)
+- [Moment.js](https://momentjs.com/)
+- [jQuery.countdown](https://hilios.github.io/jQuery.countdown/)
 - [noUiSlider](https://refreshless.com/nouislider/)
 - [clipboard.js](https://clipboardjs.com/)
-- [Jekyll](http://jekyllrb.com/)
+- [Jekyll](https://jekyllrb.com/)
 - [GitHub Pages](https://pages.github.com/)
 
 [Hogervorst et al. (2014)]: https://doi.org/10.3389/fnins.2014.00322 "Hogervorst, M. A., Brouwer, A. M., & van Erp, J. B. (2014). Combining and comparing EEG, peripheral physiology and eye-related measures for the assessment of mental workload."

@@ -10,12 +10,12 @@ timezone: Asia/Shanghai
 title: N-Back
 description: A JavaScript Implementation of the N-Back Task
 keywords: N-Back, The N-Back Task, Game
-url: http://n-back.irockbunnylab.com
+url: https://n-back.irockbunnylab.com
 
 author: iROCKBUNNY
 author_url: http://irockbunny.com
 organization: iROCKBUNNY Lab
-organization_url: http://irockbunnylab.net
+organization_url: https://irockbunnylab.net
 
 contact: contact[at]irockbunny[dot]com
 
