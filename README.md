@@ -28,7 +28,7 @@ With this version of the n-back task, the level of workload is varied without va
 Participants were informed after every button press whether it was a correct decision by a high (correct) or a low (incorrect) pitched tone. This was intended to help the participant, who in our experiment switched rather often between n-back conditions, and to increase the likelihood that participants would decide to invest effort since the participant knew the experiment leader would hear the sounds as well.
 
 ## Stimuli
-The letters used in the n-back task were black (font style: Semantic UI standard, approximately 3 cm high) and were presented on a white background. The letters were presented for 500 ms followed by a 2000-ms inter-stimulus interval during which the letter was replaced by a fixation cross. In all conditions, 33% of letters were targets. Except for the letter `X` in the 0-back task, letters were randomly selected from English consonants. Vowels were excluded to reduce the likeliness of participants developing chunking strategies which reduce mental effort, as suggested in [Grimes et al. (2008)][].
+The letters used in the n-back task were black (font style: Fomantic UI standard, approximately 3 cm high) and were presented on a white background. The letters were presented for 500 ms followed by a 2000-ms inter-stimulus interval during which the letter was replaced by a fixation cross. In all conditions, 33% of letters were targets. Except for the letter `X` in the 0-back task, letters were randomly selected from English consonants. Vowels were excluded to reduce the likeliness of participants developing chunking strategies which reduce mental effort, as suggested in [Grimes et al. (2008)][].
 
 ## Design
 The three conditions (0-back, 1-back, 2-back) were presented in 2-min blocks divided across four sessions. Each session consisted of two repetitions of each of the three blocks. Thus, for each of the three conditions participants performed `4 sessions * 2 repetitions = 8 blocks`. In each block, 48 letters were presented, 16 of which were targets. The blocks were presented in pseudorandom order, such that each condition was presented once in the first half of the session and once in the second half of the session, and that blocks of the same condition never occurred directly after each other. Before each session was a baseline block of 2 min in which the participant quietly fixated a cross on the screen. With `4 sessions * 2 repetitions * 3 conditions`, plus `4 sessions * 1 baseline block`, the total duration of the n-back task was 56 min.
@@ -40,7 +40,7 @@ After entering the lab, participants read and were explained about the experimen
 1. [Hogervorst, M. A., Brouwer, A. M., & van Erp, J. B. (2014). Combining and comparing EEG, peripheral physiology and eye-related measures for the assessment of mental workload.][Hogervorst et al. (2014)]
 
 ## Powered by
-- [Semantic UI](https://semantic-ui.com/)
+- [Fomantic UI](https://fomantic-ui.com/)
 - [jQuery](https://jquery.com/)
 - [Lodash](https://lodash.com/)
 - [Shields.io](https://shields.io/)
