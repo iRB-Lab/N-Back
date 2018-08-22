@@ -30,7 +30,8 @@
     {% include dimmer.html %}
     <script type="text/javascript" src="//unpkg.com/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="//unpkg.com/fomantic-ui/dist/semantic.min.js"></script>
-    {% if page.home %}<script type="text/javascript" src="//unpkg.com/moment/min/moment.min.js"></script>{% endif %}
+    {% if page.home %}<script type="text/javascript" src="//unpkg.com/dayjs/dayjs.min.js"></script>{% endif %}
+    {% if page.home %}<script type="text/javascript" src="//unpkg.com/dayjs/plugin/relativeTime.js"></script>{% endif %}
     <script type="text/javascript" src="{{ '/assets/js/loading-dimmer.js' | relative_url }}"></script>
     <script type="text/javascript" src="{{ '/assets/js/common.js' | relative_url }}"></script>
     {% if page.home %}<script type="text/javascript">

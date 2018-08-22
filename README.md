@@ -44,7 +44,7 @@ After entering the lab, participants read and were explained about the experimen
 - [jQuery](https://jquery.com/)
 - [Lodash](https://lodash.com/)
 - [Shields.io](https://shields.io/)
-- [Moment.js](https://momentjs.com/)
+- [Day.js](https://github.com/iamkun/dayjs)
 - [jQuery.countdown](https://hilios.github.io/jQuery.countdown/)
 - [noUiSlider](https://refreshless.com/nouislider/)
 - [clipboard.js](https://clipboardjs.com/)
