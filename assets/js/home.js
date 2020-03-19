@@ -12,7 +12,7 @@ setInterval(function () {
 }, 15000);
 
 // version
-dayjs.extend(dayjs_plugin_relativeTime);
+dayjs.extend(window.dayjs_plugin_relativeTime);
 function updateVersion(timestamp) {
     $('#version img').attr('src', 'https://img.shields.io/badge/Updated-' + encodeURIComponent(dayjs(timestamp).fromNow()) + '-brightgreen.svg');
 };
