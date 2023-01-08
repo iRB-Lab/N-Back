@@ -7,7 +7,7 @@
     <meta name="updated_at" content="{{ site.time | date_to_xmlschema }}">
     {% seo %}
     <link rel="stylesheet" type="text/css" href="//unpkg.com/fomantic-ui/dist/semantic.min.css">
-    {% if page.task or page.practice %}<link rel="stylesheet" type="text/css" href="//unpkg.com/nouislider/distribute/nouislider.min.css">{% endif %}
+    {% if page.task or page.practice %}<link rel="stylesheet" type="text/css" href="//unpkg.com/nouislider/dist/nouislider.min.css">{% endif %}
     <link rel="stylesheet" type="text/css" href="{{ '/assets/css/common.css' | relative_url }}">
     <link rel="stylesheet" type="text/css" href="{{ '/assets/css/task.css' | relative_url }}">
     <link rel="apple-touch-icon" type="image/png" href="{{ '/apple-touch-icon.png' | relative_url }}">
@@ -22,7 +22,7 @@
     <script type="text/javascript" src="{{ '/assets/js/loading-dimmer.js' | relative_url }}"></script>
     <script type="text/javascript" src="//unpkg.com/lodash/lodash.min.js"></script>
     {% if page.task %}<script type="text/javascript" src="//unpkg.com/jquery-countdown/dist/jquery.countdown.min.js"></script>{% endif %}
-    {% if page.task or page.practice %}<script type="text/javascript" src="//unpkg.com/nouislider/distribute/nouislider.min.js"></script>{% endif %}
+    {% if page.task or page.practice %}<script type="text/javascript" src="//unpkg.com/nouislider/dist/nouislider.min.js"></script>{% endif %}
     {% if page.task or page.practice %}<script type="text/javascript" src="//unpkg.com/wnumb/wNumb.js"></script>{% endif %}
     {% if page.task or page.practice %}<script type="text/javascript" src="//unpkg.com/clipboard/dist/clipboard.min.js"></script>{% endif %}
     <script type="text/javascript" src="{{ '/assets/js/n-back.js' | relative_url }}"></script>
