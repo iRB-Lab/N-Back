@@ -197,13 +197,13 @@ function startCurrentBlock() {
     $('#action-buttons').append(
         $('<div>').addClass('ui two large buttons').append(
             $('<div>').addClass('ui positive left labeled icon button').html('<i class="arrow left icon"></i>Target').click(function () {
-                markAsTarget();
+                markAsTarget(new Date());
             })
         ).append(
             $('<div>').addClass('or')
         ).append(
             $('<div>').addClass('ui negative right labeled icon button').html('Non-Target<i class="arrow right icon"></i>').click(function () {
-                markAsNonTarget();
+                markAsNonTarget(new Date());
             })
         ).append(
             $('<audio>').attr({
