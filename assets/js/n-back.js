@@ -368,6 +368,17 @@ function loadRSME() {
     });
 };
 
+function downloadResults() {
+    var dataStr = 'data:text/json;charset=utf-8,' + document.getElementById('results').value;
+    var filename = 'n-back_result_' + (new Date().toISOString()) + '.json'
+    var downloadAnchorNode = document.createElement('a');
+    downloadAnchorNode.setAttribute("href",     dataStr);
+    downloadAnchorNode.setAttribute("download", filename);
+    document.body.appendChild(downloadAnchorNode); // required for firefox
+    downloadAnchorNode.click();
+    downloadAnchorNode.remove();
+};
+
 function loadResults() {
     $('#task-header .image').attr({
         src: '/images/logo.png',
@@ -387,12 +398,15 @@ function loadResults() {
     }));
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
-        $('<div>').addClass('ui fluid large primary copy button')
-        .attr('data-clipboard-target', '#results')
-        .text('Copy to Clipboard')
-        .click(function() {
-            navigator.clipboard.writeText(document.getElementById('results').value);
-        });
+        $('<div>').addClass('ui two large buttons').append(
+            $('<div>').addClass('ui fluid large primary copy button')
+            .text('Copy to Clipboard')
+            .click(function() => navigator.clipboard.writeText(document.getElementById('results').value))
+        ).append(
+            $('<div>').addClass('ui fluid large primary button')
+            .text('Download JSON')
+            .click(downloadResults)
+        )
     );
 };
 
