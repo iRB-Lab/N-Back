@@ -395,7 +395,7 @@ function loadResults() {
     ).form('set value', 'results', JSON.stringify({
         'rest_start_timestamp': restBlockStartTime,
         'blocks': blocks
-    }));
+    }, null, 4));
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
         $('<div>').addClass('ui two large buttons').append(
