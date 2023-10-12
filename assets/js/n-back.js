@@ -389,7 +389,7 @@ function loadResults() {
     $('#action-buttons').append(
         $('<div>').addClass('ui fluid large primary copy button').attr('data-clipboard-target', '#results').text('Copy to Clipboard')
     );
-    new Clipboard('.copy.button');
+    const clipboard = new ClipboardJS('.copy.button');
 };
 
 function runTask(blocks) {
