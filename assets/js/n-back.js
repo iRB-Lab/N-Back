@@ -387,9 +387,13 @@ function loadResults() {
     }));
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
-        $('<div>').addClass('ui fluid large primary copy button').attr('data-clipboard-target', '#results').text('Copy to Clipboard')
+        $('<div>').addClass('ui fluid large primary copy button')
+        .attr('data-clipboard-target', '#results')
+        .text('Copy to Clipboard')
+        .click(function() {
+            navigator.clipboard.writeText(document.getElementById('results').value);
+        });
     );
-    new Clipboard('.copy.button');
 };
 
 function runTask(blocks) {
