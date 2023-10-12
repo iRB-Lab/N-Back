@@ -219,7 +219,7 @@ function startCurrentBlock() {
         ).append(
             $('<div>').addClass('or')
         ).append(
-            $('<div>').addClass('ui negative right labeled icon button').html('Non-Target<i class="arrow right icon"></i>').click(function () {
+            $('<div>').addClass('ui negative right labeled icon button').html('<i class="arrow right icon"></i>Non-Target').click(function () {
                 markAsNonTarget(new Date());
             })
         ).append(
