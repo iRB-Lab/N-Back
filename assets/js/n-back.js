@@ -37,19 +37,36 @@ function generateBlock(level,
     var unloadTime = loadTime + loadInterval;
     if (level === 0) {
         for (var i = 0; i < totalSize; i++) {
-            stimuli.push({
-                'stimulus': _.sample(stimuliPool),
-                'is_target': true,
-                'load_time': loadTime,
-                'unload_time': unloadTime,
-                'answer': null,
-                'correct': null,
-                'response_time': null,
-                'timestamp': {
-                    'load': null,
-                    'response': null
-                }
-            });
+            if (_.random(1, totalSize - i) <= targetSize) {
+                targetSize--;
+                stimuli.push({
+                    'stimulus': 'X',
+                    'is_target': true,
+                    'load_time': loadTime,
+                    'unload_time': unloadTime,
+                    'answer': null,
+                    'correct': null,
+                    'response_time': null,
+                    'timestamp': {
+                        'load': null,
+                        'response': null
+                    }
+                });
+            } else {
+                stimuli.push({
+                    'stimulus': _.sample(_.difference(stimuliPool, ['X'])),
+                    'is_target': false,
+                    'load_time': loadTime,
+                    'unload_time': unloadTime,
+                    'answer': null,
+                    'correct': null,
+                    'response_time': null,
+                    'timestamp': {
+                        'load': null,
+                        'response': null
+                    }
+                });
+            };
             loadTime += interval;
             unloadTime += interval;
         };
@@ -384,7 +401,7 @@ function loadResults() {
     ).form('set value', 'results', JSON.stringify({
         'rest_start_timestamp': restBlockStartTime,
         'blocks': blocks
-    }));
+    }, null, 4));
     $('#action-buttons').children().remove();
     $('#action-buttons').append(
         $('<div>').addClass('ui fluid large primary copy button').attr('data-clipboard-target', '#results').text('Copy to Clipboard')
